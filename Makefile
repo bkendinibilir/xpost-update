@@ -5,8 +5,8 @@ VERSION=latest
 build:
 	docker build -t ${REPO}/${NAME} .
 
-push: build
-	docker push ${REPO}/${NAME}:${VERSION}
+push:
+	docker buildx build --platform linux/amd64,linux/arm64 --push -t ${REPO}/${NAME}:${VERSION} .
 
 clean:
 	docker rmi ${REPO}/${NAME}
