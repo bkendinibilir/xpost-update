@@ -10,6 +10,17 @@ docker run -e SECRETS_FILE=secrets.json --volume ./secrets.json:/secrets.json --
 
 docker run -e SECRETS_FILE=secrets.json --volume ./secrets.json:/secrets.json --volume ./data:/data xpost-update "this is a post edited"
 
+secrets.json looks like:
+
+```
+{
+  "consumer_key": "ABCDEFGHIJKLMNOPQRSTUVXYZ1234567890",
+  "consumer_secret": "ABCDEFGHIJKLMNOPQRSTUVXYZ1234567890",
+  "access_token": "ABCDEFGHIJKLMNOPQRSTUVXYZ1234567890",
+  "access_token_secret": "ABCDEFGHIJKLMNOPQRSTUVXYZ1234567890"
+}
+```
+
 ### update existing post with known POST ID again
 
 docker run -e POST_ID=123123123123 -e SECRETS_FILE=secrets.json --volume ./secrets.json:/secrets.json --volume ./data:/data xpost-update "this is a post edited again"
