@@ -33,11 +33,15 @@ If you start xpost-update for the first time and want to update an existing post
 
 If xpost-update has a persistent volume on /data, it will save the new post id in /data/lastpost_id. When you start xpost-update again, it will use this saved post id instead of the POST_ID given.
 
-### pass all needed parameters as environment variables
+### Pass all needed parameters as environment variables
+
+You can also pass all needed paramets as environments variables:
 
 `docker run -e POST_TEST="this is a post" -e CONSUMER_KEY=123 -e CONSUMER_SECRET=123 -e ACCESS_TOKEN=123 -e ACCESS_TOKEN_SECRET=123 --volume ./data:/data xpost-update`
 
-### use docker swarm, docker secrets and swarm-cronjob to start container regularly
+We will use this in the next use case below.
+
+### Use docker swarm, docker secrets and swarm-cronjob to start container regularly
 
 Add docker secret with your secret.json:
 
