@@ -1,16 +1,16 @@
 # xpost-update
 
-Create a post on x.com (Twitter) and update this post again.
+Create a post on x.com (Twitter) and update this post by deleting the old one and create a updated one.
 
-## usage
+## Usage
 
-### create new post and update this post again
+### Create new post and update this post again
 
-create new post:
+Create new post:
 
 `docker run -e SECRETS_FILE=secrets.json --volume ./secrets.json:/secrets.json --volume ./data:/data xpost-update "this is a post"`
 
-update this post again:
+Update this post again:
 
 `docker run -e SECRETS_FILE=secrets.json --volume ./secrets.json:/secrets.json --volume ./data:/data xpost-update "this is a post edited"`
 
@@ -25,11 +25,13 @@ secrets.json looks like:
 }
 ```
 
-### update existing post with known POST ID again
+### Update existing post with known POST ID again
 
-if you start xpost-update for the first time and want to update an existing post set the POST_ID as environment variable:
+If you start xpost-update for the first time and want to update an existing post set the POST_ID as environment variable:
 
 `docker run -e POST_ID=123123123123 -e SECRETS_FILE=secrets.json --volume ./secrets.json:/secrets.json --volume ./data:/data xpost-update "this is a post edited again"`
+
+If xpost-update has a persistent volume on /data, it will save the new post id in /data/lastpost_id. When you start xpost-update again, it will use this saved post id instead of the POST_ID given.
 
 ### pass all needed parameters as environment variables
 
