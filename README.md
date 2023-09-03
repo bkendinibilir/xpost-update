@@ -43,10 +43,10 @@ We will use this in the next use case below.
 
 ### Use docker swarm, docker secrets and swarm-cronjob to start container regularly
 
-Add docker secret with your secret.json:
+Add docker secret with the content of secrets.json (see structure of secrets.json in the first usage example):
 
 ```
-docker secret create xpost-update-secrets secrets.jsons
+docker secret create xpost-update-secrets secrets.json
 ```
 
 Add swarm-cronjob as new service:
